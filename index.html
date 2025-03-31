@@ -41,10 +41,11 @@
             max-width: 100%;
             height: 200px;
             display: flex;
-            align-items:center;
-            gap: 1em;;
+            align-items: center;
+            gap: 1em;
+            ;
             background-color: rgb(209, 34, 209);
-            
+
 
         }
 
@@ -52,11 +53,9 @@
             width: 150px;
             max-width: 100%;
             height: auto;
-            display: block; */
-          
-            /* Helps with centering
-            /* margin: 10px auto; */
-            /* border-style:groove; */
+            display: block;
+            */
+           
         }
 
         .item {
@@ -65,31 +64,31 @@
             font-style: normal;
         }
 
-        .state{
-            font-family:'Courier New', Courier, monospace;
+        .state {
+            font-family: 'Courier New', Courier, monospace;
             font-style: oblique;
-            font-weight:700;
+            font-weight: 700;
             /* font-size:larger; */
             font-size: 20px;
-            color:rgb(52, 5, 58);
+            color: rgb(52, 5, 58);
         }
 
-        .highest-price{
-            font-family:'Courier New', Courier, monospace;
+        .highestPrice {
+            font-family: 'Courier New', Courier, monospace;
             font-style: normal;
-            font-weight:700;
-            
-        }
-    
-        .lowest-price{
-            font-family:'Courier New', Courier, monospace;
-            font-style: normal;
-            font-weight:700;
+            font-weight: 700;
+
         }
 
-        h3{
-            font-family:'Courier New', Courier, monospace;
-            color:rgb(198, 53, 209);
+        .lowestPrice {
+            font-family: 'Courier New', Courier, monospace;
+            font-style: normal;
+            font-weight: 700;
+        }
+
+        h3 {
+            font-family: 'Courier New', Courier, monospace;
+            color: rgb(198, 53, 209);
             font-style: oblique;
         }
     </style>
@@ -114,18 +113,118 @@
 
             <p class="category"> Category: Personal Care/Hygiene</p> -->
 
-            <!-- <img src=electric_fan.svg> -->
-        </div>
+    <!-- <img src=electric_fan.svg> -->
+    </div>
+    <script>
+        //    let card = document.getElementsByClassName();
+        //    for (let index = 0; index < cards.length; index++) {
+        // //    card.style.backgroundColor = 'rgb(209, 34, 209);
+        // }
+        // let card = document.getElementsByClassName('card-content')
 
-        <div class="card">
-            <img src="electric_fan.svg" alt="Electric Fan">
-            <div class="card-content">
-                <h2 class="item">Electric Fan</h2>
-                <p class="state">Kansas</p>
-                <p class="highest-price">Highest price: $52.96</p>
-                <p class="lowest-price">Lowest price: $18.74</p>
-            </div>
+        // card.style.backgroundColor = 'rgb(209, 34, 209)';
+
+        const commissary_items = [
+            // function showCommissary(item, state, high, low)
+            // let perCard =document.createElement("div");
+            // perCard.classList.add("card");
+
+            // let perItem= document.createElement("div");
+            // perItem.classList.add("Item");
+
+            // let
+
+            {
+                item: "Crucifix",
+                state: "Delaware",
+                highestPrice: "$53",
+                lowestPrice: "$53",
+            },
+            {
+                item: "Star of David",
+                state: "Virginia",
+                highestPrice: "$38",
+                lowestPrice: "$38",
+            },
+
+            {
+                item: "Prayer Rug",
+                state: "Vermont",
+                highestPrice: "$29",
+                lowestPrice: "$29",
+
+            },
+
+            {
+                item: "Quran",
+                state: "Vermont",
+                highestPrice: "$28",
+                lowestPrice: "$27",
+            },
+            {
+                item: "Hijab",
+                state: "Delaware",
+                highestPrice: "$18",
+                lowestPrice: "$18",
+            },
+            {
+                item: "Bible",
+                state: "Vermont",
+                highestPrice: "$16",
+                lowestPrice: "$16",
+            },
+            {
+                item: "Reading Glasses",
+                state: "Vermont",
+                highestPrice: "$16",
+                lowestPrice: "$16",
+            },
+            {
+                item: "Hair Conditioner",
+                state: "New Mexico",
+                highestPrice: "$15",
+                lowestPrice: "$3",
+            },
+            {
+                item: "Relaxer",
+                state: "West Virginia",
+                highestPrice: "$14",
+                lowestPrice: "$13",
+            }
+        ]
+            for(let i=0; i<10; i++) (commissary_items) {
+                console.log('commissary_items')
+                let card=document.getElementsByClassName("card-content")
+                let card= document.createElement("div");
+                perCard.classList.add("card-content");
+                perCard.classList.add("item");
+                perCard.classList.add("state");
+                perCard.classList.add("highestPrice");
+                perCard.classList.add("lowestPrice");
+              
+
+            }
+            commissary_items.forEach(commissary){
+                printLine (item, state, high, low)
+            }
+
+        
+
+    
+            
+            
+            
+    </script>
+
+    <div class="card">
+        <img src="electric_fan.svg" alt="Electric Fan">
+        <div class="card-content">
+            <h2 class="item">Electric Fan</h2>
+            <p class="state">Kansas</p>
+            <p class="highestPrice">Highest price: $53</p>
+            <p class="lowestPrice">Lowest price: $19</p>
         </div>
+    </div>
 
 
     </div>
