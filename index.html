@@ -16,8 +16,7 @@
 
         .rubik-mono-one-regular {
             font-family: "Rubik Mono One", monospace;
-            /* font-weight: 400;
-            font-style: normal; */
+
         }
 
 
@@ -26,7 +25,7 @@
             flex-direction: row;
             justify-content: flex-start;
             flex-wrap: wrap;
-            */ align-content: center;
+            align-content: center;
             gap: 1em;
             padding: 30px;
             background-color: rgb(198, 53, 209);
@@ -54,8 +53,8 @@
             max-width: 100%;
             height: auto;
             display: block;
-            */
-           
+
+
         }
 
         .item {
@@ -65,10 +64,10 @@
         }
 
         .state {
-            font-family: 'Courier New', Courier, monospace;
+            font-family: 'Courier New', Courier,
+                monospace;
             font-style: oblique;
             font-weight: 700;
-            /* font-size:larger; */
             font-size: 20px;
             color: rgb(52, 5, 58);
         }
@@ -99,52 +98,41 @@
 </head>
 
 <body>
-    <div class="header">
-        <h1> Top 10 most expensive commissary items </h1>
-        <h3>Across 46 states </h3>
-    </div>
+    <div class="flex-container">
+        <div class="header">
+            <h1> Top 10 most expensive commissary items </h1>
+            <h3>Across 46 states </h3>
+        </div>
 
-    <!-- <div class="flex-container">
         <div class="card">
-            <h2> <span class="item"> Electric Fan</span> </h2>
-            <p class="state"> Kansas </p>
-            <p class="highest-price">Highest price: $52.96</p>
-            <p class="lowest-price">Lowest price: $18.74 </p>
+            <img src="electric_fan.svg" alt="Electric Fan">
+            <div class="card-content">
+                <h2 class="item">Electric Fan</h2>
+                <p class="state">Kansas</p>
+                <p class="highestPrice">Highest price: $53</p>
+                <p class="lowestPrice">Lowest price: $19</p>
+            </div>
+        </div>
 
-            <p class="category"> Category: Personal Care/Hygiene</p> -->
 
-    <!-- <img src=electric_fan.svg> -->
     </div>
     <script>
-        //    let card = document.getElementsByClassName();
-        //    for (let index = 0; index < cards.length; index++) {
-        // //    card.style.backgroundColor = 'rgb(209, 34, 209);
-        // }
-        // let card = document.getElementsByClassName('card-content')
-
-        // card.style.backgroundColor = 'rgb(209, 34, 209)';
 
         const commissary_items = [
-            // function showCommissary(item, state, high, low)
-            // let perCard =document.createElement("div");
-            // perCard.classList.add("card");
-
-            // let perItem= document.createElement("div");
-            // perItem.classList.add("Item");
-
-            // let
 
             {
                 item: "Crucifix",
                 state: "Delaware",
                 highestPrice: "$53",
                 lowestPrice: "$53",
+                image:"crucifix.png"
             },
             {
                 item: "Star of David",
                 state: "Virginia",
                 highestPrice: "$38",
                 lowestPrice: "$38",
+                image: "star.svg"
             },
 
             {
@@ -152,6 +140,7 @@
                 state: "Vermont",
                 highestPrice: "$29",
                 lowestPrice: "$29",
+                image: "rug.jpg"
 
             },
 
@@ -160,74 +149,79 @@
                 state: "Vermont",
                 highestPrice: "$28",
                 lowestPrice: "$27",
+                image: "quran.jpg"
             },
             {
                 item: "Hijab",
                 state: "Delaware",
                 highestPrice: "$18",
                 lowestPrice: "$18",
+                image: "hijab.jpg"
             },
             {
                 item: "Bible",
                 state: "Vermont",
                 highestPrice: "$16",
                 lowestPrice: "$16",
+                image: "bible.jpg" // Added image for the Bible
             },
             {
                 item: "Reading Glasses",
                 state: "Vermont",
                 highestPrice: "$16",
                 lowestPrice: "$16",
+                image: "glasses.jpg"
             },
             {
                 item: "Hair Conditioner",
                 state: "New Mexico",
                 highestPrice: "$15",
                 lowestPrice: "$3",
+                image: "conditioner.jpg"
             },
             {
                 item: "Relaxer",
                 state: "West Virginia",
                 highestPrice: "$14",
                 lowestPrice: "$13",
+                image: "relaxer.jpeg"
             }
         ]
-            for(let i=0; i<10; i++) (commissary_items) {
-                console.log('commissary_items')
-                let card=document.getElementsByClassName("card-content")
-                let card= document.createElement("div");
-                perCard.classList.add("card-content");
-                perCard.classList.add("item");
-                perCard.classList.add("state");
-                perCard.classList.add("highestPrice");
-                perCard.classList.add("lowestPrice");
-              
 
-            }
-            commissary_items.forEach(commissary){
-                printLine (item, state, high, low)
-            }
+        function build_card(item, state, highestPrice, lowestPrice, image) {
 
-        
+            // 1 select a container
+            let container = document.querySelector(".flex-container");
+            // 2 create a div
+            let card = document.createElement("div");
+            // 3 add classes to the div
+            card.classList.add("card");
+            // 4 populate the div with content
+            card.innerHTML = `
+            <img src= "${image}" alt="${item}">
+                <div class="card-content">
+                    <h2 class="item">${item}</h2>
+                    <p class="state">${state}</p>
+                    <p class="highestPrice">Highest price: ${highestPrice}</p>
+                    <p class="lowestPrice">Lowest price: ${lowestPrice}</p>
+                </div>`
+            // 5 append the div to the container
+            container.append(card);
 
-    
-            
-            
-            
+
+        }
+
+        commissary_items.forEach(function (commissary) {
+            build_card(commissary.item, commissary.state, commissary.highestPrice, commissary.lowestPrice, commissary.image);
+
+        })
+
+
+
+
     </script>
-
-    <div class="card">
-        <img src="electric_fan.svg" alt="Electric Fan">
-        <div class="card-content">
-            <h2 class="item">Electric Fan</h2>
-            <p class="state">Kansas</p>
-            <p class="highestPrice">Highest price: $53</p>
-            <p class="lowestPrice">Lowest price: $19</p>
-        </div>
     </div>
 
-
-    </div>
 
 </body>
 
