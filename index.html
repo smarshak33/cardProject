@@ -90,6 +90,18 @@
             color: rgb(198, 53, 209);
             font-style: oblique;
         }
+
+        .filter-dropdown {
+            margin-bottom: 20px;
+        }
+
+        .filter-dropdown select {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        
+        }
+      
     </style>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -104,6 +116,12 @@
             <h3>Across 46 states </h3>
         </div>
 
+        <select id="filterDropdown">
+            <option value="all">Show All</option>
+            <option value="state">State</option>
+            <option value="category">Product Category</option>
+        </select>
+
         <div class="card">
             <img src="electric_fan.svg" alt="Electric Fan">
             <div class="card-content">
@@ -116,6 +134,9 @@
 
 
     </div>
+
+
+    </div>
     <script>
 
         const commissary_items = [
@@ -125,7 +146,7 @@
                 state: "Delaware",
                 highestPrice: "$53",
                 lowestPrice: "$53",
-                image:"crucifix.png"
+                image: "crucifix.png"
             },
             {
                 item: "Star of David",
@@ -216,6 +237,95 @@
 
         })
 
+
+        //        // Get the dropdown element
+        //        let dropdown = document.getElementById('filterDropdown');
+
+        // //query select all <td> elements
+        // let state = document.querySelectorAll('state');
+
+        // //query select all <th> elements
+        // let item = document.querySelectorAll('item');
+
+        // // Add an event listener when the dropdown changes 
+        // // (the function inside this should 
+        // // include the filter value and the two for each loops below)
+
+        // dropdown.addEventListener("change",function(){
+
+
+        //     // Get the selected value in the dropdown
+        //     let filterValue = this.value;
+
+        //     console.log(filterValue);
+        //     // Make a for each loop that goes through each <td> element
+        //     state.forEach(function(cell) {
+        //         //if the dropdown value equals the data-party of the cell, set the display to none
+        //         if (filterValue==cell.getAttribute("data-party")) {
+        //             cell.style.display="none";
+        //         } 
+        //         // Otherwise, set each cell's display to table-cell
+        //         else { cell.style.display= "state";
+
+        //         }
+        //     });
+
+        //     // Make a for each loop that goes through each <th> element
+        //     item.forEach(function(header) {
+        //         //if the dropdown value equals the data-party of the cell, set the display to none
+        //         if (filterValue==header.getAttribute("")) {
+        //             header.style.display= "none";
+        //         } 
+        //         // Otherwise, set the header's display to table-cell
+        //         else {
+        //             header.style.display="table-cell";
+        //         }
+        //     });
+        // Get the dropdown element
+        let dropdown = document.getElementById('filterDropdown');
+
+        // Add an event listener when the dropdown changes
+        dropdown.addEventListener("change", function () {
+            // Get the selected value in the dropdown
+            let filterValue = this.value;
+
+            // Query all the cards
+            let cards = document.querySelectorAll('.card');
+
+            // Loop through each card
+            cards.forEach(function (card) {
+                // Get the state and category from the card
+                let state = card.querySelector('.state').textContent.trim();
+                let Productcategory = card.querySelector('.item').textContent.trim();
+
+
+                // Determine if the card should be displayed
+                if (filterValue === "all") {
+                    card.style.display = "flex"; // Show all cards
+        // } else if (filterValue === "state" && state === "Kansas") {
+        //     card.style.display = "flex"; // Show cards for Kansas
+                  }  else if (state.has(filterValue) && state === filterValue) {
+                        card.style.display = "flex"; // Show cards for the selected state
+                    }
+                 else if (filterValue === "Product Category") {
+                    // Group items into categories
+                    if (["Crucifix", "Star of David", "Prayer Rug", "Quran", "Hijab", "Bible"].includes(category)) {
+                        card.style.display = "flex"; // Religious items
+                        display.textContent = "Religious Items"
+                    } else if (["Ramen", "Beans", "Peanut Butter", "Mac and Cheese"].includes(category)) {
+                        card.style.display = "flex"; // Food items
+                        display.textContent = "Food"
+                    } else if (["Reading Glasses", "Hair Conditioner", "Relaxer"].includes(category)) {
+                        card.style.display = "flex"; // Personal Care items
+                        display.textContent = "Personal Items"
+                    } else {
+                        card.style.display = "none"; // Hide unrelated items
+                    }
+                } else {
+                    card.style.display = "none"; // Hide cards that don't match
+                }
+            });
+        })
 
 
 
